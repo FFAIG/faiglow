@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dijital Yönetim Sistemi – FAI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #fff;
+      color: #111;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────────── */
+    .header {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1919 / 1100;
+      background: radial-gradient(ellipse at 30% 25%, #f0efee 0%, #d9d8d7 35%, #c4c3c2 65%, #b0aeac 100%);
+      overflow: hidden;
+    }
+
+    /* ── LOGO ───────────────────────────────────────────────── */
+    .hero-logo {
+      position: absolute;
+      top: 3%;
+      left: 3%;
+      z-index: 20;
+      width: 5%;
+      pointer-events: none;
+      filter: drop-shadow(0 0 4px rgba(255,255,255,0.4)) drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    }
+
+    /* ── SAĞ ÜST İKONLAR ───────────────────────────────────── */
+    .top-right-icons {
+      position: absolute;
+      top: 28px;
+      right: 36px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      z-index: 10;
+    }
+
+    .icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+    }
+
+    .icon-btn:hover { opacity: 0.72; }
+
+    .icon-btn svg {
+      width: 30px;
+      height: 30px;
+      fill: none;
+      stroke: #ffffff;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.55));
+    }
+
+    /* ── MENÜ DROPDOWN ──────────────────────────────────────── */
+    .menu-wrapper {
+      position: relative;
+    }
+
+    .menu-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      background: #fff;
+      min-width: 240px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+      z-index: 100;
+      padding: 8px 0;
+      border-radius: 12px;
+    }
+
+    .menu-dropdown.open {
+      display: block;
+    }
+
+    .menu-dropdown a {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #111;
+      text-decoration: none;
+      padding: 14px 24px;
+      transition: background 0.15s;
+    }
+
+    .menu-dropdown a:hover {
+      background: #f5f5f5;
+    }
+
+    /* ── BAŞLIK METNİ ────────────────────────────────────────── */
+    .baslik-metin {
+      position: absolute;
+      top: 58%;
+      left: 8%;
+      transform: translateY(-50%);
+      font-family: 'Inter', sans-serif;
+      font-size: 1.8vw;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: #fff;
+      line-height: 1.3;
+      text-align: left;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2vw;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.45), 0 1px 6px rgba(0,0,0,0.3);
+    }
+
+    /* ── QR OLUŞTUR BUTON ───────────────────────────────────── */
+    .qr-btn {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8vw;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #444;
+      background: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 0.9vw 2.2vw;
+      cursor: pointer;
+      transition: box-shadow 0.3s, background 0.2s, color 0.2s;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 0 20px rgba(255,255,255,0.7), 0 0 36px rgba(200,190,220,0.4), 0 3px 10px rgba(0,0,0,0.15);
+    }
+
+    .qr-btn:hover {
+      background: #f0f0f0;
+      color: #555;
+      box-shadow: 0 0 10px rgba(255,255,255,0.35), 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* ── QR DENEYİMİ BÖLÜMÜ ─────────────────────────────────── */
+    .qr-deneyim {
+      background: #fff;
+      padding: 120px 72px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .qr-deneyim .bolum {
+      margin-bottom: 64px;
+    }
+
+    .qr-deneyim .bolum:last-child {
+      margin-bottom: 0;
+    }
+
+    .qr-deneyim .giris-p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #444;
+      margin-bottom: 64px;
+    }
+
+    .qr-deneyim h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #111;
+      margin-bottom: 24px;
+    }
+
+    .qr-deneyim p {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #444;
+    }
+
+    .qr-deneyim ul {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 0 0;
+    }
+
+    .qr-deneyim ul li {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: #444;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .qr-deneyim ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #bbb;
+    }
+
+    /* ── AYNA ────────────────────────────────────────────────── */
+    .ayna-img {
+      position: absolute;
+      top: 45%;
+      left: -18%;
+      transform: translateY(-50%);
+      width: 200%;
+      pointer-events: none;
+      z-index: 5;
+      filter: drop-shadow(0 0 32px rgba(255,255,255,0.6)) drop-shadow(0 0 80px rgba(200,190,220,0.35));
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+
+    <img src="FAILOGOSON.png" alt="FAI Logo" class="hero-logo" />
+    <img src="LL-FAI-SS.png" alt="FAI" class="ayna-img" />
+    <div class="baslik-metin">
+      <span>DİJİTAL ETKİLEŞİMLİ LED AYNA</span>
+      <a href="#" class="qr-btn">QR OLUŞTUR</a>
+    </div>
+
+    <div class="top-right-icons">
+
+      <button class="icon-btn" title="Kullanıcı Girişi" aria-label="Kullanıcı Girişi">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 20c0-3.9 3.6-7 8-7s8 3.1 8 7" />
+        </svg>
+      </button>
+
+      <div class="menu-wrapper">
+        <button class="icon-btn" id="menuBtn" title="Menü" aria-label="Menü" onclick="toggleMenu()">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <line x1="3" y1="6"  x2="21" y2="6"  />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+        </button>
+        <div class="menu-dropdown" id="menuDropdown">
+          <a href="dijital-yonetim.html">Dijital Yönetim Sistemi</a>
+          <a href="index.html">Dijital Etkileşimli Ayna</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- QR DENEYİMİ -->
+  <section style="background:#fff; padding:120px 0;">
+    <div class="qr-deneyim">
+
+      <div class="bolum">
+        <h2>QR DENEYİMİ</h2>
+        <p class="giris-p">
+          Size ilettiğimiz bağlantıya, e-posta adresiniz ve oluşturacağınız şifre ile güvenle giriş yapabilirsiniz.
+          Kayıt ekranında istenilen bilgileri eksiksiz doldurarak hesabınızı oluşturmanız yeterlidir.
+          Onay sürecini tamamladıktan sonra üyeliğiniz aktif hale gelecektir.
+        </p>
+      </div>
+
+      <div class="bolum">
+        <h2>PROFİLİNİZİ OLUŞTURUN, MARKANIZI YANSITIN</h2>
+        <p>
+          Giriş yaptıktan sonra açılan profil panelinden QR aynanızda görüntülenecek dijital profilinizi oluşturabilirsiniz.
+          Bu alanda:
+        </p>
+        <ul>
+          <li>Şirket logonuzu kapak görseli olarak ekleyebilir,</li>
+          <li>Profesyonel fotoğraflarınızı yükleyebilir,</li>
+          <li>İletişim bilgilerinizi (telefon, e-posta, adres) tanımlayabilir,</li>
+          <li>Yol tarifi bağlantısı ekleyebilir,</li>
+          <li>Sosyal medya ve e-ticaret linklerinizi paylaşabilir,</li>
+          <li>Katalog bağlantı bilgilerinizi tanımlayabilirsiniz.</li>
+        </ul>
+      </div>
+
+      <div class="bolum">
+        <h2>TAM KONTROL SİZDE</h2>
+        <p>
+          QR aynanızdaki profil bilgilerinizi istediğiniz an güncelleyebilirsiniz.<br/>
+          Artık QR Aynanız ile bilgilerinizi tek bir dokunuşla, prestijli ve modern bir şekilde paylaşmaya hazırsınız.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5AYK / D9D8D7 GRADYAN BÖLÜM -->
+  <div style="
+    width:100%;
+    background: radial-gradient(ellipse at 30% 25%, #f0efee 0%, #d9d8d7 35%, #c4c3c2 65%, #b0aeac 100%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+    line-height:0;
+  ">
+    <img src="5A-Y-K.png" alt="5 Ay K" style="
+      display:block;
+      width:150%;
+      height:auto;
+    " />
+  </div>
+
+  <!-- QR LED IŞIKLI AYNA İÇERİK -->
+  <section style="background:#fff; padding:60px 0;">
+    <div class="qr-deneyim">
+
+      <div class="bolum">
+        <h2>NASIL ÇALIŞIR?</h2>
+        <p>Ayna üzerindeki QR kod sabit kalır; QR'ın arkasındaki dijital içerik ise tamamen dinamik ve yönetilebilir yapıdadır. Kullanıcı herhangi bir uygulama indirmek zorunda kalmadan içeriğe anında erişir.</p>
+      </div>
+
+      <div class="bolum">
+        <h2>IŞIKLA YÖNLENDİRİLEN DENEYİM</h2>
+        <p>LED ışık, QR alanını yalnızca görünür kılmakla kalmaz; kullanıcının odağını doğrudan yönlendirir. Mekânın estetiğine zarar vermeden dikkat çeken bu tasarım, deneyimi sessizce başlatır.</p>
+      </div>
+
+      <div class="bolum">
+        <h2>ZAMANSIZ VE GÜNCELLENEBİLİR YAPI</h2>
+        <p>QR LED Işıklı Ayna'nın en güçlü özelliği, QR kod değişmeden içeriğin her an güncellenebilir olmasıdır. Aynı QR üzerinden dilediğiniz içeriği kolayca yönetebilirsiniz:</p>
+        <ul>
+          <li>İletişim bilgileri</li>
+          <li>Sosyal medya hesapları</li>
+          <li>Kampanyalar</li>
+          <li>Ürünler</li>
+          <li>Etkinlikler</li>
+          <li>Özel içerikler</li>
+        </ul>
+      </div>
+
+      <div class="bolum">
+        <h2>KİŞİSELLEŞTİRİLEBİLİR TASARIM</h2>
+        <ul>
+          <li>Işık tonu</li>
+          <li>QR alanı</li>
+          <li>Kapsül yapısı</li>
+          <li>İçerik sıralaması</li>
+        </ul>
+        <p style="margin-top:16px;">Tüm yapı markaya, mekâna ve hedef kitleye göre eksiksiz biçimde özelleştirilebilir.</p>
+      </div>
+
+      <div class="bolum">
+        <h2>GALERİYE AÇILAN DİJİTAL PANEL</h2>
+        <p>QR LED Işıklı QR Yansıtan Ayna'da yer alan panel, sadece galeri mantığıyla yapılandırılabilir. Bu alan içerisinde;</p>
+        <ul>
+          <li>Fotoğraflar</li>
+          <li>Videolar</li>
+          <li>Belgeler</li>
+          <li>Özel metinler</li>
+          <li>Anı içerikleri</li>
+        </ul>
+        <p style="margin-top:16px;">
+          tek bir dijital akış altında sunulur. Tüm içerikler admin panelinden kolayca yüklenir ve düzenlenir.
+          Dilediğiniz an yeni anılar ekleyebilir, mevcut içerikleri güncelleyebilirsiniz.
+        </p>
+        <p style="margin-top:16px;">
+          Fiziksel bir aynadan başlayan yolculuk, kişisel, kalıcı ve paylaşılan bir dijital hatıraya dönüşür.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TELEFON YENİ YEŞİL -->
+  <div style="width:100%; overflow:hidden;">
+    <img src="TELEFON-Y5.png" alt="FAI - Telefon Y" style="width:100%; display:block;" />
+  </div>
+
+  <!-- ALT BEYAZ FON -->
+  <div style="width:100%; min-height:620px; padding:250px 72px; background:#fff; display:flex; align-items:center; justify-content:center;">
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:350px; max-width:1200px; width:100%;">
+
+    <div style="text-align:center;">
+      <h3 style="font-family:'Inter',sans-serif; font-size:14px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#111; margin-bottom:18px;">KİŞİSELLEŞTİRME</h3>
+      <p style="font-family:'Inter',sans-serif; font-size:15px; font-weight:300; line-height:1.75; color:#444;">
+        QR içeriğini ve tasarım detaylarını özelleştirin.<br/>
+        Tek dokunuşla kendi dijital deneyiminizi oluşturun.<br/>
+        Işığı, QR'ı ve tasarımı size göre yapılandırın.
+      </p>
+    </div>
+
+    <div style="text-align:center;">
+      <h3 style="font-family:'Inter',sans-serif; font-size:14px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#111; margin-bottom:18px;">İLETİŞİM</h3>
+      <p style="font-family:'Inter',sans-serif; font-size:15px; font-weight:300; line-height:1.75; color:#444;">
+        E-mail, İnstagram<br/>
+        aracılığıyla bize ulaşabilirsiniz.
+      </p>
+    </div>
+
+  </div>
+  </div>
+
+  <!-- ALT SİYAH FON -->
+  <div style="position:relative; width:100%; min-height:620px; padding:250px 72px; background:#000; display:flex; align-items:center; justify-content:center;">
+    <img src="FAILOGOSON.png" alt="FAI Logo" style="position:absolute; top:8%; left:50%; transform:translateX(-50%); width:100px;" />
+    <a href="https://www.instagram.com/fai.glow/" target="_blank" style="position:absolute; bottom:8%; left:50%; transform:translateX(-50%);">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="#ffffff" stroke="none"/>
+      </svg>
+    </a>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:120px; max-width:1200px; width:100%; text-align:center;">
+
+      <div>
+        <h3 style="font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#fff; margin-bottom:18px;">ONLINE</h3>
+        <p style="font-family:'Inter',sans-serif; font-size:13.5px; font-weight:300; line-height:1.75; color:#aaa;">QR Oluşturun</p>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#fff; margin-bottom:18px;">BİZE ULAŞIN</h3>
+        <p style="font-family:'Inter',sans-serif; font-size:13.5px; font-weight:300; line-height:1.75; color:#aaa;">E-mail</p>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Inter',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:#fff; margin-bottom:18px;">FAI</h3>
+        <p style="font-family:'Inter',sans-serif; font-size:13.5px; font-weight:300; line-height:1.75; color:#aaa;">
+          <a href="gizlilik.html" style="color:#aaa; text-decoration:none;">Gizlilik Sözleşmesi</a><br/>
+          <a href="cerez.html" style="color:#aaa; text-decoration:none;">Çerez Politikası</a><br/>
+          © 2026 FAI Tüm hakları saklıdır.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const dropdown = document.getElementById('menuDropdown');
+      dropdown.classList.toggle('open');
+    }
+
+    document.addEventListener('click', function(e) {
+      const btn = document.getElementById('menuBtn');
+      const dropdown = document.getElementById('menuDropdown');
+      if (!btn.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  </script>
+
+  <script>
+    if (history.scrollRestoration) history.scrollRestoration = 'manual';
+    window.addEventListener('load', function() { window.scrollTo(0, 0); });
+  </script>
+
+</body>
+</html>
