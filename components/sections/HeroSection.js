@@ -12,7 +12,7 @@ export default function HeroSection({ data }) {
           fill
           priority
           sizes="100vw"
-          quality={100}
+          quality={85}
           style={{ objectFit: "cover" }}
         />
       </div>
@@ -24,26 +24,28 @@ export default function HeroSection({ data }) {
         width={800}
         height={1000}
         priority
-        sizes="(max-width:640px) 75vw, (max-width:1024px) 50vw, 45vw"
-        quality={100}
-        className="hero-product-img"
-        style={{ height: "auto" }}
+        sizes="(max-width:768px) 80vw, 45vw"
+        quality={82}
+        style={{
+          position: "absolute",
+          top: "31%",
+          left: "53.8%",
+          transform: "translateX(-50%)",
+          width: "45%",
+          height: "auto",
+          zIndex: 15,
+          pointerEvents: "none",
+        }}
       />
 
-      {/* Overlay: stacks vertically, tight on mobile, spacious on desktop */}
-      <div className="absolute bottom-[8%] sm:bottom-[10%] left-[4%] sm:left-[5%] z-20 flex flex-col items-start gap-2 sm:gap-4">
-        <p className="text-[10px] sm:text-[11px] font-semibold tracking-[0.18em] uppercase text-white/80">
-          {data.eyebrow}
-        </p>
-        <h1
-          className="font-bold tracking-[0.08em] uppercase text-white leading-[1.2]"
-          style={{ fontSize: "clamp(16px, 2vw, 36px)", textShadow: "0 2px 20px rgba(0,0,0,0.4)" }}
-        >
+      <div className="hero-overlay">
+        <p className="hero-eyebrow">{data.eyebrow}</p>
+        <h1 className="hero-headline">
           {data.headline.map((line, i) => (
             <span key={i}>{i > 0 && <br />}{line}</span>
           ))}
         </h1>
-        <div className="flex flex-wrap gap-2 sm:gap-4 mt-1 sm:mt-2">
+        <div className="hero-ctas">
           {data.ctas.map((cta) =>
             cta.variant === "primary" ? (
               <Link key={cta.href} href={cta.href} className="cta-primary">
