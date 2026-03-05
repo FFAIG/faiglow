@@ -45,7 +45,7 @@ export default function Header() {
             width={340}
             height={120}
             priority
-            className="w-14 sm:w-20 lg:w-auto"
+            className="w-24 sm:w-20 lg:w-auto"
             style={{ height: "auto" }}
           />
         </Link>
@@ -58,7 +58,7 @@ export default function Header() {
             width={340}
             height={120}
             priority
-            className="w-14 sm:w-20 lg:w-auto"
+            className="w-24 sm:w-20 lg:w-auto"
             style={{ height: "auto" }}
           />
         </div>
