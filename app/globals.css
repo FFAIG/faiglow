@@ -159,6 +159,29 @@ body {
   aspect-ratio: 1919 / 1000;
 }
 
+/* ── MOBİL: TAM EKRAN FOTOĞRAFLAR ────────────────────── */
+@media (max-width: 639px) {
+  /* Ana sayfa hero – aspect-ratio kaldır, tam ekran yap */
+  .hero-clip {
+    aspect-ratio: unset;
+    min-height: 100svh;
+  }
+
+  /* Dijital yönetim – digi-header tam ekran */
+  .digi-header {
+    min-height: 100svh;
+  }
+
+  /* Ayna görseli tam ekranı ortadan kaplasın */
+  .ayna-img {
+    width: 100% !important;
+    height: 100svh !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    transform: none !important;
+  }
+}
+
 /* ── CTA BUTTONS ─────────────────────────────────────── */
 .cta-primary {
   font-size: 8px;
@@ -309,6 +332,25 @@ body {
 .qr-btn:hover {
   background: #f0f0f0; color: #555;
   box-shadow: 0 0 10px rgba(255,255,255,0.35), 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ── HERO PRODUCT IMAGE ──────────────────────────────── */
+.hero-product-img {
+  position: absolute;
+  top: 31%;
+  left: 53.8%;
+  transform: translateX(-50%);
+  width: 45%;
+  height: auto;
+  z-index: 15;
+  pointer-events: none;
+}
+
+@media (max-width: 639px) {
+  .hero-product-img {
+    width: 75% !important;
+    top: 28% !important;
+  }
 }
 
 /* ── AYNA IMAGE ──────────────────────────────────────── */

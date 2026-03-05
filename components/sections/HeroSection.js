@@ -12,7 +12,7 @@ export default function HeroSection({ data }) {
           fill
           priority
           sizes="100vw"
-          quality={85}
+          quality={95}
           style={{ objectFit: "cover" }}
         />
       </div>
@@ -24,18 +24,10 @@ export default function HeroSection({ data }) {
         width={800}
         height={1000}
         priority
-        sizes="(max-width:640px) 55vw, (max-width:1024px) 50vw, 45vw"
-        quality={82}
-        style={{
-          position: "absolute",
-          top: "31%",
-          left: "53.8%",
-          transform: "translateX(-50%)",
-          width: "45%",
-          height: "auto",
-          zIndex: 15,
-          pointerEvents: "none",
-        }}
+        sizes="(max-width:640px) 75vw, (max-width:1024px) 50vw, 45vw"
+        quality={92}
+        className="hero-product-img"
+        style={{ height: "auto" }}
       />
 
       {/* Overlay: stacks vertically, tight on mobile, spacious on desktop */}
