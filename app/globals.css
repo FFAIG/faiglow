@@ -256,7 +256,7 @@ body {
   gap: 0;
   padding: var(--space-section) var(--gutter);
   background: var(--color-white);
-  align-items: center;
+  align-items: start;
   min-height: 620px;
 }
 
