@@ -88,7 +88,7 @@ export const homeContent = {
   hero: {
     backgroundImage: { src: "/TURUNCUMEK1.png", alt: "FAI QR LED Ayna" },
     productImage: { src: "/TURUNCU-FAI9.png" },
-    eyebrow: "QR LED IŞIKLI AYNA",
+    eyebrow: "FAI QR KODLU LED AYNA",
     headline: ["IŞIĞIN İÇİNDE", "DİJİTAL GÜCÜNÜZ"],
     ctas: [
       { label: "DİJİTAL YÖNETİM", href: "/dijital-yonetim", variant: "primary" },
