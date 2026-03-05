@@ -7,10 +7,10 @@ export default function FeaturesSection({ features }) {
     >
       {features.map((f) => (
         <div key={f.heading} className="text-center lg:pr-8 last:pr-0">
-          <h3 className="text-[14px] font-semibold tracking-[0.12em] uppercase text-[#111] mb-4 leading-[1.4]">
+          <h3 className="text-[11px] sm:text-[14px] font-semibold tracking-[0.12em] uppercase text-[#111] mb-4 leading-[1.4]">
             {f.heading}
           </h3>
-          <p className="text-[15px] font-light leading-[1.75] text-[#444]">
+          <p className="text-[12px] sm:text-[15px] font-light leading-[1.75] text-[#444]">
             {f.text}
           </p>
         </div>
