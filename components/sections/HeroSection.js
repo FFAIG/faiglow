@@ -12,7 +12,7 @@ export default function HeroSection({ data }) {
           fill
           priority
           sizes="100vw"
-          quality={95}
+          quality={100}
           style={{ objectFit: "cover" }}
         />
       </div>
@@ -25,7 +25,7 @@ export default function HeroSection({ data }) {
         height={1000}
         priority
         sizes="(max-width:640px) 75vw, (max-width:1024px) 50vw, 45vw"
-        quality={92}
+        quality={100}
         className="hero-product-img"
         style={{ height: "auto" }}
       />

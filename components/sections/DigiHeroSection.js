@@ -11,8 +11,8 @@ export default function DigiHeroSection({ data }) {
         width={data.image.width}
         height={data.image.height}
         priority
-        sizes="200vw"
-        quality={90}
+        sizes="100vw"
+        quality={100}
         className="ayna-img"
         style={{ width: "100%", height: "auto", display: "block" }}
       />
