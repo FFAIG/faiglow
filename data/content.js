@@ -99,7 +99,7 @@ export const homeContent = {
   features: [
     {
       heading: "Mekanlarda Dijital Deneyim",
-      text: "QR entegre akıllı ayna sistemi, özel geliştirilmiş yönetim paneli ile çalışır. Yönetim paneli sayesinde kullanıcılar diledikleri gibi özel içerikler oluşturabilir, ekleyebilir ve güncelleyebilir. QR kod okutulduğunda ziyaretçiler tek bir temas noktasıyla sosyal medya hesaplarına, ürünlere, menülere, marka iş birliklerine ve özel içeriklere erişebilir; kampanya ve çekilişlere katılabilir.",
+      text: "QR entegre akıllı ayna sistemi, özel geliştirilmiş yönetim paneli ile çalışır. Yönetim paneli sayesinde kullanıcılar diledikleri gibi özel içerikler oluşturabilir, ekleyebilir ve güncelleyebilir. QR kod okutulduğunda ziyaretçiler tek bir temas noktasıyla sosyal medya hesaplarına, ürünlere, menülere, marka iş birliklerine ve özel içeriklere erişebilir; kampanya ve çekilişlere katılabilir. Mekân içindeki deneyim güçlü ve interaktif bir dijital altyapıyla desteklenir.",
     },
     {
       heading: "Seçkin Bağlantı Deneyimi",
