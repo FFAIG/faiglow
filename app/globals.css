@@ -104,6 +104,13 @@ body {
   pointer-events: auto;
 }
 
+@media (max-width: 639px) {
+  .logo-site--big img {
+    width: 144px !important;
+    height: auto !important;
+  }
+}
+
 .logo-site--hidden {
   opacity: 0;
   pointer-events: none;
