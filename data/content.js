@@ -96,11 +96,6 @@ export const homeContent = {
     ],
   },
 
-  featuresIntro: [
-    "Modern tasarımı ve dayanıklı yapısıyla öne çıkan ayna, mimari ve ticari mekânlar için özel olarak tasarlanmıştır.",
-    "QR üzerinden erişilen içerikler, her kullanıcı için özel olarak kurgulanır. Her kullanıcı, kendi dijital alanının sahibidir.",
-  ],
-
   features: [
     {
       heading: "Mekanlarda Dijital Deneyim",
