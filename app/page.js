@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <>
       <HeroSection data={homeContent.hero} />
-      <FeaturesSection features={homeContent.features} />
+      <FeaturesSection features={homeContent.features} intro={homeContent.featuresIntro} />
       <BannerSection data={homeContent.banner} />
       <TwoColSection items={homeContent.twoCol} />
     </>
