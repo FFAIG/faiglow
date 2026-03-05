@@ -20,12 +20,14 @@ export default function DijitalYonetimPage() {
 
       <GalleryBand image={dijitalContent.galleryImage} />
 
+      {/* Smaller vertical padding for the second content block */}
       <QrDeneyimSection
         sections={dijitalContent.qrContent}
-        className="qr-section-sm"
+        className="bg-white py-10 sm:py-12 lg:py-[3.75rem]"
       />
 
-      <div className="full-width-image">
+      {/* Full-width responsive image */}
+      <div className="w-full overflow-hidden leading-[0]">
         <Image
           src={phoneImage.src}
           alt={phoneImage.alt}

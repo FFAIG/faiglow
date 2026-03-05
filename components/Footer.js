@@ -7,33 +7,48 @@ export default function Footer() {
   const [col1, col2, col3] = footer.columns;
 
   return (
-    <footer className="site-footer">
+    /* Mobile: single column, stacked → Tablet/Desktop: 3-column grid */
+    <footer className="relative w-full min-h-[360px] sm:min-h-[480px] lg:min-h-[620px] py-16 sm:py-20 lg:py-24 px-6 sm:px-10 lg:px-16 bg-black flex items-center justify-center">
 
-      <div className="footer-logo-wrap">
+      {/* Logo – centered at top */}
+      <div className="absolute top-[8%] left-1/2 -translate-x-1/2">
         <Image
           src={logo.src}
           alt={logo.alt}
           width={logo.footerW}
           height={logo.footerH}
+          className="w-20 lg:w-auto"
           style={{ height: "auto" }}
         />
       </div>
 
-      <div className="footer-grid">
+      {/* 3-column grid: stacks on mobile, side by side on sm+ */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 lg:gap-28 max-w-wide w-full text-center mt-12 sm:mt-0">
         <div>
-          <h3 className="footer-heading">{col1.heading}</h3>
-          <p className="footer-text">{col1.text}</p>
+          <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">
+            {col1.heading}
+          </h3>
+          <p className="text-[13.5px] font-light leading-[1.75] text-[#aaa]">{col1.text}</p>
         </div>
         <div>
-          <h3 className="footer-heading">{col2.heading}</h3>
-          <p className="footer-text">{col2.text}</p>
+          <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">
+            {col2.heading}
+          </h3>
+          <p className="text-[13.5px] font-light leading-[1.75] text-[#aaa]">{col2.text}</p>
         </div>
         <div>
-          <h3 className="footer-heading">{col3.heading}</h3>
-          <p className="footer-text">
+          <h3 className="text-[11px] font-semibold tracking-[0.12em] uppercase text-white mb-4">
+            {col3.heading}
+          </h3>
+          <p className="text-[13.5px] font-light leading-[1.75] text-[#aaa]">
             {col3.links.map((link) => (
               <span key={link.href}>
-                <Link href={link.href} className="footer-link">{link.label}</Link>
+                <Link
+                  href={link.href}
+                  className="text-[#aaa] no-underline hover:text-[#ddd] transition-colors"
+                >
+                  {link.label}
+                </Link>
                 <br />
               </span>
             ))}
@@ -42,11 +57,12 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* Instagram icon – centered at bottom */}
       <a
         href={instagram.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="footer-ig"
+        className="absolute bottom-[8%] left-1/2 -translate-x-1/2"
         aria-label={instagram.label}
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">

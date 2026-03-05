@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function EtkilesimPage() {
   return (
-    <div className="login-page">
+    <div className="min-h-screen flex flex-col items-center justify-start bg-white px-6 sm:px-10 pb-10 pt-[calc(var(--header-h)+80px)]">
       <Image
         src="/FAI1.png"
         alt="FAI Logo"
