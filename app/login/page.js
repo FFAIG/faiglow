@@ -1,0 +1,14 @@
+import LoginForm from "@/components/LoginForm";
+
+export const metadata = {
+  title: "Giriş",
+  robots: { index: false, follow: false },
+};
+
+export default function LoginPage() {
+  return (
+    <div className="login-page">
+      <LoginForm />
+    </div>
+  );
+}
