@@ -26,7 +26,10 @@ export default function Footer() {
         </div>
         <div>
           <h3 className="footer-heading">{col2.heading}</h3>
-          <p className="footer-text">{col2.text}</p>
+          <p className="footer-text">
+            {col2.text}
+            {col2.phone && <><br />{col2.phone}</>}
+          </p>
         </div>
         <div>
           <h3 className="footer-heading">{col3.heading}</h3>

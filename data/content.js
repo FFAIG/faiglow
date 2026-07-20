@@ -56,7 +56,7 @@ export const siteConfig = {
   footer: {
     columns: [
       { heading: "ONLINE", text: "QR Oluşturun" },
-      { heading: "BİZE ULAŞIN", text: "E-mail" },
+      { heading: "BİZE ULAŞIN", text: "E-mail", phone: "+905551588307" },
       {
         heading: "FAI",
         links: [
@@ -236,7 +236,7 @@ export const dijitalContent = {
   ],
 
   phoneImage: {
-    src: "/TELEFON-Y5.png",
+    src: "/ekran-fai.png",
     alt: "FAI Dijital Profil – Mobil",
     width: 1920,
     height: 1080,
