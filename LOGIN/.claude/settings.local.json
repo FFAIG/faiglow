@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx prisma:*)",
+      "Bash(npx opennextjs-cloudflare:*)",
+      "Bash(npm install:*)",
+      "Bash(npx vercel:*)",
+      "Read(//c/Users/Filiz/AppData/Local/Temp/claude/C--Users-Filiz-OneDrive-Masa-st--FAI-LOGIN/a9592fb4-8599-47e1-963d-0196527274a7/tasks/**)"
+    ]
+  }
+}
